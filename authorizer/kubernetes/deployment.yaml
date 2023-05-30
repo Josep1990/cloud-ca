@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authorizer-deployment
+  labels:
+    app: authorizer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: authorizer
+  template:
+    metadata:
+      labels:
+        app: authorizer
+    spec:
+      containers:
+      - name: authorizer
+        image: authorizer:1.0
+        ports:
+        - containerPort: 5000

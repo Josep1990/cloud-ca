@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: authorizer
+spec:
+  selector:
+    app: authorizer
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80 # Any port
+      targetPort: 5000 # Same as the Deployment (in fairness, same as the Pods)
+      nodePort: 30111
