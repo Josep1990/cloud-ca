@@ -99,6 +99,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
+    session.pop('authorization', None)
     # Render the logout HTML template
     return redirect(url_for('main_page'))
 
