@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Add Song to Playlist</title>
+</head>
+
+<body>
+    <h1>Hello, {{ session['username'] }}</h1>
+    <h1>Add Song to Playlist</h1>
+   
+    <form action="/add_song_to_playlist" method="POST">
+        <label for="song">Select a Song:</label>
+        <select name="song" id="song">
+            {% for song in songs %}
+                <option value="{{ song.id }}">{{ song.song_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="playlist">Select a Playlist:</label>
+        <select  name="playlist" id="playlist">
+            {% for playlist in playlists %}
+                <option value="{{ playlist.id }}">{{ playlist.playlist_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Add to Playlist">
+    </form>
+
+    <p>Click <a href="{{ url_for('playlists') }}">here</a> See My playlists.</p>
+    <br>
+    <p>Click <a href="{{ url_for('create_playlist') }}">here</a> to Create a playlists.</p>
+    <br>      
+    <p>Click <a href="{{ url_for('my_account') }}">here</a> to go back.</p>
+    <br>
+    <p>Click <a href="{{ url_for('logout') }}">here</a> to logout.</p>
+</body>
+</html>

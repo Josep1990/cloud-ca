@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to my Music App</title>
+    <style>
+        .list-songs {
+            width: 200px; /* Set the desired width */
+            height: 200px; /* Set the desired height */
+    }
+    </style>
+</head>
+<body>
+    <h1>Hello, {{ session['username'] }}</h1>
+    <form action="/create_playlist" method="POST">
+        <label for="playlist_name">Playlist Name:</label>
+        <input type="text" name="playlist_name" id="playlist_name" required>
+        <br><br>
+
+    
+        <label for="song_ids">Select Songs (Hold 'ctrl' to select multiple songs):</label>
+        <br><br>
+        <select class="list-songs" name="song_ids" id="song_ids" multiple required>
+         
+            {% for song in songs %} 
+            <option value="{{ song.id }}">{{ song.song_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Create Playlist">
+    </form>
+
+    <br>  <br>
+    <p>Click <a href="{{ url_for('playlists') }}">here</a> My playlists.</p>
+    <br>
+    <p>Click <a href="{{ url_for('add_song_to_playlist') }}">here</a> to Add a song to a Playlist.</p>
+    <br>
+    <p>Click <a href="{{ url_for('my_account') }}">here</a> to go back.</p>
+    <br>
+    <p>Click <a href="{{ url_for('logout') }}">here</a> to logout.</p>
+</body>
+</html>

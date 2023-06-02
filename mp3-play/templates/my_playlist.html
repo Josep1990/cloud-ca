@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Welcome to my Music App</title>
+    </head>
+<body>
+    <h1>Hello, {{ session['username'] }}</h1>
+    <br><br>
+  
+  
+  
+    {% for playlist_name, songs in playlists.items() %}
+    <h2>{{ playlist_name }}</h2>
+    <ul>
+        {% for song in songs %}
+            <li>                
+                {{ song }}
+                <audio controls>
+                    <source src="/songs/{{ song }}" type="audio/mpeg">
+                </audio>
+            
+            </li>
+        {% endfor %}
+    </ul>  
+    {% endfor %}
+    <br><br>
+    <p>Click <a href="{{ url_for('create_playlist') }}">here</a> to Create a playlists.</p>
+    <br>
+    <p>Click <a href="{{ url_for('add_song_to_playlist') }}">here</a> to Add a song to a Playlist.</p>    
+    <br>
+    <p>Click <a href="{{ url_for('my_account') }}">here</a> to go back.</p>
+    <br>    
+    <p>Click <a href="{{ url_for('logout') }}">here</a> to logout.</p>
+</body>
+</html>
