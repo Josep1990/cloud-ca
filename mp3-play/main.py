@@ -172,10 +172,8 @@ def add_song_to_playlist():
             song_id = request.form['song']
             playlist_id = request.form['playlist']
             user_id = session['id']
-            # Perform necessary validation and authorization checks
-            # ...
 
-            # Assuming the validation and authorization checks pass, insert the song into the playlist
+            #the validation and authorization checks pass, insert the song into the playlist
             if song_id is not None and playlist_id is not None:
                 cursor = mysql.connection.cursor()
                 cursor.execute('INSERT IGNORE INTO playlist_songs (user_id, playlist_id, song_id) VALUES (%s, %s, %s)', (user_id, playlist_id, song_id))
@@ -258,7 +256,6 @@ def play_song(song_name):
     full_song_name = song_name + '.mp3'
     with open(f'./songs/{full_song_name}', 'rb') as f:
         return Response(f.read(), mimetype="audio/mpeg")
-
 
 if __name__ == '__main__':
     app.run()

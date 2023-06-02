@@ -24,4 +24,22 @@ inside the `authorizer`folder after having activated the virtual environment.
 ##  Run it
 ```
 python main.py
+
 ````
+## Change directory to mp3-play
+
+````
+cd ../mp3-play
+
+````
+## Update Database Connection string
+
+````
+## Run it
+
+````
+python main.py
+
+## Go to Browser localhost:5000/
+
+## Register a User 
