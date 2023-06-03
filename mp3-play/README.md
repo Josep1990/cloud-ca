@@ -9,7 +9,7 @@ Execute:
 ```
 python -m venv .
 ```
-inside the `authorizer`folder.
+inside the `mp3-play`folder.
 And then:
 ```
 source bin/activate
@@ -20,16 +20,7 @@ Execute:
 ```
 pip install -r requirements.txt
 ```
-inside the `authorizer`folder after having activated the virtual environment.
-##  Run it
-```
-python main.py
-
-````
-## Change directory to mp3-play
-
-````
-cd ../mp3-play
+inside the `mp3-play`folder after having activated the virtual environment.
 
 ````
 ## Update Database Connection string
