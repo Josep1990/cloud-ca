@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: authorizer-deployment
+  name: mp3-play-deployment
   labels:
-    app: authorizer
+    app: mp3-play
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: authorizer
+      app: mp3-play
   template:
     metadata:
       labels:
-        app: authorizer
+        app: mp3-play
     spec:
       containers:
-      - name: authorizer
-        image: authorizer:1.0
+      - name: mp3-play
+        image: mp3-play:1.0
         ports:
         - containerPort: 5000
